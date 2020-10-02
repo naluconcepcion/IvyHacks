@@ -1,5 +1,10 @@
 # about
 
-This is the repository for **OnT00**, a new location-based social networking app that enables users to join chatrooms with others within a certain distance of them. This project was developed and designed by Srikar Yallala, Grace Yao, and Nalu Concepcion over the course of 36 hours for HackMIT 2020.
+This is the repository for **OnT00**, a new location-based social networking app that enables users to join chatrooms with others within a certain distance of them. 
 
-![Farmers Market Finder Demo](assets/demo-gif.gif)
+We are now working on a second version of the app with more features and bug fixes. 
+
+## relevant details
+@Caleb and @Kewal, please message me via discord (drop your emails) for the .env file as well as credentials to Firebase and Figma! 
+
+![OnToo Demonstration of Code Prototype](assets/demo-gif.gif)
