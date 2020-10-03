@@ -38,7 +38,7 @@ class LoginScreen extends Component {
         style={styles.tinyLogo}
         source={require('../assets/images/ontoologo.png')}
       />
-      <Icon name="chevron-left" size={20} color="white"
+      <Icon name="chevron-left" size={20} color='#212121'
         onPress={() => this.props.navigation.navigate('Opening')}
         style={styles.back}
       />
@@ -91,8 +91,8 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   back: {
-    top: 10,
-    left: 5 ,
+    top: '-15%',
+    left: '-40%' ,
     padding: 10,
     width: 40,
   },
