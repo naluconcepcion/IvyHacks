@@ -6,6 +6,8 @@ import Map from '../screens/Map'
 import Chat from '../components/Chat'
 import Profile from '../components/Profile'
 import Mailbox from '../screens/Mailbox'
+import Friends from '../screens/Friends'
+import OneToOne from '../screens/OneToOne'
 
 import {
   Ionicons
@@ -92,6 +94,16 @@ function MainStackNavigator2() {
       <MainNavigator.Screen
         name="Profile"
         component = {Profile}
+      />
+
+      <MainNavigator.Screen
+        name="Friends"
+        component = {Friends}
+      />
+
+      <MainNavigator.Screen
+        name="OneToOne"
+        component = {OneToOne}
       />
 
     </MainNavigator.Navigator>
