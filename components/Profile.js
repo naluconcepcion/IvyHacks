@@ -62,7 +62,7 @@ export default class Profile extends Component {
         onPress={() => this.props.navigation.navigate('Mailbox')}>
         <Image
           style={styles.mailboxImage}
-          source={require('../assets/images/mailbox-open.png')}
+          source={require('../assets/images/mailbox.png')}
         />
         <Text style={styles.text}>Mailbox</Text>
         </TouchableOpacity>
