@@ -38,7 +38,7 @@ class SignupScreen extends Component {
         style={styles.tinyLogo}
         source={require('../assets/images/ontoologo.png')}
       />
-      <Icon name="chevron-left" size={20} color="white"
+      <Icon name="chevron-left" size={20} color="#F9F9F9"
         onPress={() => this.props.navigation.navigate('Opening')}
         style={styles.back}
       />
@@ -102,8 +102,8 @@ const styles = StyleSheet.create({
     top: '10%'
   },
   back: {
-    top: 10,
-    left: 5 ,
+    top: '-10%',
+    left: '-40%' ,
     padding: 10,
     width: 40,
   },
