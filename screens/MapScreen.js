@@ -246,7 +246,7 @@ class MapScreen extends Component {
     navigator.geolocation.getCurrentPosition(
       position => {
         const location = [position.coords.latitude.toFixed(0),position.coords.longitude.toFixed(0)];
-        // console.log(location)
+        //console.log(location)
         this.setState({
           location: location,
           isLoading: false,
@@ -258,6 +258,7 @@ class MapScreen extends Component {
   };
 
   render() {
+    console.log("SOMETHING IS HAPPENING")
     if(!this.state.isLoading) {
       return(
 
@@ -304,7 +305,7 @@ class MapScreen extends Component {
     else {
       return(
         <View style={styles.container}>
-        <Text>Page loading!</Text>
+        <Text>Page Loading!</Text>
         </View>
       )
     }
@@ -337,7 +338,7 @@ const styles = StyleSheet.create({
     borderColor: '#F9F9F9',
   },
   buttonText: {
-    fontFamily: 'Avenir-Medium',
+    fontFamily: 'sans-serif',
     fontSize: 25,
     lineHeight: 30,
     color: 'white',

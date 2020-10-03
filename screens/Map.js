@@ -337,7 +337,7 @@ const styles = StyleSheet.create({
     borderColor: '#F9F9F9',
   },
   buttonText: {
-    fontFamily: 'Avenir-Medium',
+    fontFamily: 'sans-serif',
     fontSize: 25,
     lineHeight: 30,
     color: 'white',

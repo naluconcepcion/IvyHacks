@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#212121',
-    fontFamily: 'Avenir',
+    fontFamily: 'sans-serif',
     fontSize: 60
   },
 })

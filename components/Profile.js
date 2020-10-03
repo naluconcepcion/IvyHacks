@@ -135,14 +135,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   nameText: {
-    fontFamily: 'Avenir',
+    fontFamily: 'sans-serif',
     color: '#F9F9F9',
     justifyContent: 'center',
     position: 'relative',
     fontSize: 40
   },
   text: {
-    fontFamily: 'Avenir',
+    fontFamily: 'sans-serif',
     color: '#F9F9F9',
     padding: 20,
     top: '-5%',

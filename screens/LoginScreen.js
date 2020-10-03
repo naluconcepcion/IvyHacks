@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     top: '-10%'
   },
   textHeading: {
-    fontFamily: 'Avenir',
+    fontFamily: 'sans-serif',
     position: 'relative',
     paddingRight: 190,
     color: '#D2D2D2',
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     width: 40,
   },
   textBar: {
-    fontFamily: 'Avenir',
+    fontFamily: 'sans-serif',
     position: 'relative',
     justifyContent: 'center',
     width: '70%',
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 20,
-    fontFamily: 'Avenir',
+    fontFamily: 'sans-serif',
     lineHeight: 45,
     display: 'flex',
     alignItems: 'center',
