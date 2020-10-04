@@ -25,7 +25,7 @@ export default class PostMap extends Component {
       <View
       style={styles.top}>
       <Icon name="chevron-left" size={20} color='#212121'
-        onPress={() => this.props.navigation.navigate('MapScreen')}
+        onPress={() => this.props.navigation.navigate('Map')}
         style={styles.back}
       />
       <View

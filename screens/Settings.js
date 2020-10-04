@@ -21,9 +21,13 @@ export default class Settings extends Component {
       <View
       style={styles.container}>
       <Text style={styles.text}>
-      Settings here; add logout pls
+      Settings
       </Text>
 
+      <TouchableOpacity
+      style={styles.button}>
+      <Text style={styles.logout}>Log out</Text>
+      </TouchableOpacity>
       </View>
     );
   }
@@ -34,13 +38,23 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#F9F9F9',
+    backgroundColor: '#212121',
     width: '100%',
     height: '100%',
   },
+  button: {
+    width: '60%',
+  },
+  logout: {
+    padding: 20,
+    color: '#F9F9F9',
+    textAlign: 'left'
+  },
   text: {
-    color: '#212121',
+    top: '-35%',
+    textAlign: 'center',
+    color: '#F9F9F9',
     fontFamily: 'Avenir',
-    fontSize: 60
+    fontSize: 20
   },
 })
