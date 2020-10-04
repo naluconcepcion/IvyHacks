@@ -30,36 +30,36 @@ const DATA = [
         icon_uri: 'https://discord.com/assets/dd4dbc0016779df1378e7812eabaa04d.png',
         last_message: 'school is hard'
     },
-    {
-        name: 'Srikar',
-        icon_uri: 'https://reactnative.dev/img/tiny_logo.png',
-        last_message: 'yeah, idk man this pset kills'
-    },
-    {
-        name: 'Grace',
-        icon_uri: 'https://cdn.discordapp.com/avatars/247056765877878785/26181ea87dcf1b90055fb6fee5cc9833.png?size=256',
-        last_message: 'follow my spotify'
-    },
-    {
-        name: 'Kurt',
-        icon_uri: 'https://discord.com/assets/dd4dbc0016779df1378e7812eabaa04d.png',
-        last_message: 'school is hard'
-    },
-    {
-        name: 'Srikar',
-        icon_uri: 'https://reactnative.dev/img/tiny_logo.png',
-        last_message: 'yeah, idk man this pset kills'
-    },
-    {
-        name: 'Grace',
-        icon_uri: 'https://cdn.discordapp.com/avatars/247056765877878785/26181ea87dcf1b90055fb6fee5cc9833.png?size=256',
-        last_message: 'follow my spotify'
-    },
-    {
-        name: 'Kurt',
-        icon_uri: 'https://discord.com/assets/dd4dbc0016779df1378e7812eabaa04d.png',
-        last_message: 'school is hard'
-    },
+//    {
+//        name: 'Srikar',
+//        icon_uri: 'https://reactnative.dev/img/tiny_logo.png',
+//        last_message: 'yeah, idk man this pset kills'
+//    },
+//    {
+//        name: 'Grace',
+//        icon_uri: 'https://cdn.discordapp.com/avatars/247056765877878785/26181ea87dcf1b90055fb6fee5cc9833.png?size=256',
+//        last_message: 'follow my spotify'
+//    },
+//    {
+//        name: 'Kurt',
+//        icon_uri: 'https://discord.com/assets/dd4dbc0016779df1378e7812eabaa04d.png',
+//        last_message: 'school is hard'
+//    },
+//    {
+//        name: 'Srikar',
+//        icon_uri: 'https://reactnative.dev/img/tiny_logo.png',
+//        last_message: 'yeah, idk man this pset kills'
+//    },
+//    {
+//        name: 'Grace',
+//        icon_uri: 'https://cdn.discordapp.com/avatars/247056765877878785/26181ea87dcf1b90055fb6fee5cc9833.png?size=256',
+//        last_message: 'follow my spotify'
+//    },
+//    {
+//        name: 'Kurt',
+//        icon_uri: 'https://discord.com/assets/dd4dbc0016779df1378e7812eabaa04d.png',
+//        last_message: 'school is hard'
+//    },
 ];
 
 class OneToOne extends Component {
