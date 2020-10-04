@@ -2,17 +2,6 @@ import React, { Component } from 'react';
 import { Button } from 'react-native-elements';
 import { Text, View, StyleSheet, TouchableOpacity, TextInput, Image } from 'react-native';
 
-import OneToOne from '../screens/OneToOne'
-
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-
-import Firebase from '../config/Firebase'
-
-import * as Font from 'expo-font';
-import { useFonts } from 'expo-font';
-import Icon from 'react-native-vector-icons/FontAwesome5';
-
 
 export default class Friends extends Component {
   static navigationOptions = {
