@@ -9,6 +9,7 @@ import Mailbox from '../screens/Mailbox'
 import Friends from '../screens/Friends'
 import OneToOne from '../screens/OneToOne'
 import PostMap from '../screens/PostMap'
+import Settings from '../screens/Settings'
 
 import {
   Ionicons
@@ -67,7 +68,7 @@ const BottomTab = createBottomTabNavigator();
 export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
-    initialRouteName="MapScreen"
+    initialRouteName="Map"
     tabBarOptions={{activeTintColor: '#B31B1B', showLabel: false, style: {backgroundColor: '#212121'}}}>
     <BottomTab.Screen
       name="Friends"
@@ -76,21 +77,15 @@ export default function BottomTabNavigator() {
         tabBarIcon: ({ color }) => <Entypo name="users" size={30} color= { color } />,
       }}
       />
-      <MapStack.Screen
-        name="PostMap"
-        component={PostMap}
-      />
+
       <BottomTab.Screen
-      name="MapScreen"
-      component={MapStackNav}
+      name="Map"
+      component={MainStackNavigator}
       options={{
         tabBarIcon: ({ color }) => <Entypo name="map" size={30} color={ color } />,
       }}
       />
-      <MapStack.Screen
-        name="Chat"
-        component={Chat}
-      />
+
       <BottomTab.Screen
       name="OneToOne"
       component={OneToOne}
@@ -102,47 +97,6 @@ export default function BottomTabNavigator() {
     );
 }
 
-
-
-
-// I couldn't get the nav stack to fucking nest so I just faked it in the bottomtab nav
-const MapStack = createStackNavigator();
-
-function MapStackNav() {
-  return (
-    <MapStack.Navigator initialRouteName = "Map"
-    screenOptions = {
-      {
-        headerShown: false
-      }
-    }>
-
-    <MapStack.Screen name = "MapScreen"
-    component = {Map}
-    />
-
-    <MapStack.Screen name = "Chat"
-    component = {Chat}
-    />
-
-    <MapStack.Screen
-      name="Friends"
-      component = {Friends}
-    />
-
-    <MapStack.Screen
-      name="OneToOne"
-      component = {OneToOne}
-    />
-
-    <MapStack.Screen
-      name="PostMap"
-      component = {PostMap}
-    />
-
-    </MapStack.Navigator>
-  )
-}
 
 const MainNavigator = createStackNavigator();
 
@@ -160,10 +114,9 @@ export function MainStackNavigator() {
       LocationInfo
     }/>
 
-    <MainNavigator.Screen name = "MapScreen"
-    component = {
-      Map
-    }/>
+    <MainNavigator.Screen name = "Map"
+    component = {Map}
+    />
 
     <MainNavigator.Screen name = "Chat"
     component = {
@@ -181,18 +134,13 @@ export function MainStackNavigator() {
     />
 
     <MainNavigator.Screen
-      name="Friends"
-      component = {Friends}
-    />
-
-    <MainNavigator.Screen
-      name="OneToOne"
-      component = {OneToOne}
-    />
-
-    <MainNavigator.Screen
       name="PostMap"
       component = {PostMap}
+    />
+
+    <MainNavigator.Screen
+      name="Settings"
+      component = {Settings}
     />
 
     </MainNavigator.Navigator>

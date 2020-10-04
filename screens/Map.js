@@ -278,7 +278,7 @@ class MapScreen extends Component {
          />
          <TouchableOpacity
          style={styles.icon}
-         onPress={() => this.props.navigation.openDrawer()}>
+         onPress={() => this.props.navigation.navigate('Settings')}>
          <Image
          source={require('../assets/images/menu.png')}/>
          </TouchableOpacity>
