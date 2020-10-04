@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 import { createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
@@ -10,7 +9,7 @@ import BottomTabNavigator from './navigation/MainNavigator'
 import AuthStackNavigator from './navigation/AuthStackNavigator'
 import MainNavigator from './navigation/MainNavigator'
 
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import Firebase, {realtime} from './config/Firebase';
 import Chat from './components/Chat';
 import firebase from './config/Firebase';
@@ -37,27 +36,30 @@ export default class App extends Component {
       position => {
         var location = [position.coords.latitude.toFixed(0),position.coords.longitude.toFixed(0)];
         location = location.toString();
-        this.setState({location});
+        this.setState({
+          location: location
+        });
       },
       error => console.log(error.message),
-      { enableHighAccuracy: false, timeout: 0, maximumAge: 10000 }
+      { enableHighAccuracy: false, timeout: 0, maximumAge: 10000}
     );
   };
 
   async componentDidMount() {
     await this.findCoordinates();
-    await Firebase.auth().onAuthStateChanged(async user => {
+    Firebase.auth().onAuthStateChanged(async user => {
       if(user) {
         this.setState({
           user: user.uid,
           isLoading: false,
         });
+        await this.findCoordinates();
         await store.dispatch(updateLocation(this.state.location))
         var locationsRef = realtime.ref(this.state.location);
         locationsRef.set({
           user: user.uid
         });
-        locationsRef.ref(this.state.location).child(user.uid).onDisconnect().remove();
+        console.log(user.uid)
       }
       else {
         this.setState({
@@ -69,17 +71,24 @@ export default class App extends Component {
   }
 
   render() {
-    return (
-      <Provider store={store}>
-          <NavigationContainer>
-            { this.state.user ? (
-              <BottomTabNavigator/>
-            ) : (
-              <AuthStackNavigator/>
-            )}
-          </NavigationContainer>
-      </Provider>
-    );
+    if(!this.state.isLoading) {
+      return (
+        <Provider store={store}>
+            <NavigationContainer>
+              { this.state.user ? (
+                <BottomTabNavigator/>
+              ) : (
+                <AuthStackNavigator/>
+              )}
+            </NavigationContainer>
+        </Provider>
+      );
+    }
+    else {
+      return(
+        null
+      )
+    }
   }
 }
 
