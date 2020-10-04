@@ -117,16 +117,17 @@ const styles = StyleSheet.create({
   },
   back: {
     color: '#F9F9F9',
+    marginLeft: 10,
     padding: 15,
-    width: 40,
+//    width: 40,
 //    left: '-20%',
 //    backgroundColor: 'blue',
   },
   top: {
     height: '10%',
     alignItems: 'center',
-    top: '10%',
     flexDirection: 'row',
+//    backgroundColor: 'red',
   },
   topWords: {
     color: '#F9F9F9',
