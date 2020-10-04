@@ -89,6 +89,10 @@ export default function BottomTabNavigator() {
         tabBarIcon: ({ color }) => <FontAwesome name="paper-plane" size={30} color={ color } />,
       }}
       />
+      <MainNavigator.Screen
+      name="PostMap"
+      component = {PostMap}
+      />
       </BottomTab.Navigator>
     );
 }
@@ -124,25 +128,22 @@ function MainStackNavigator() {
       Mailbox
     }/>
 
-      <MainNavigator.Screen
-        name="Profile"
-        component = {Profile}
-      />
+    <MainNavigator.Screen
+      name="Profile"
+      component = {Profile}
+    />
 
-      <MainNavigator.Screen
-        name="Friends"
-        component = {Friends}
-      />
+    <MainNavigator.Screen
+      name="Friends"
+      component = {Friends}
+    />
 
-      <MainNavigator.Screen
-        name="OneToOne"
-        component = {OneToOne}
-      />
+    <MainNavigator.Screen
+      name="OneToOne"
+      component = {OneToOne}
+    />
 
-      <MainNavigator.Screen
-        name="PostMap"
-        component = {PostMap}
-      />
+    
 
     </MainNavigator.Navigator>
   );

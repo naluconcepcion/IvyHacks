@@ -12,8 +12,9 @@ import * as Font from 'expo-font';
 import { useFonts } from 'expo-font';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
+import { getUser } from '../actions/user';
 
-export default class OneToOne extends Component {
+class OneToOne extends Component {
   static navigationOptions = {
       title: 'OneToOne'
   }
@@ -38,7 +39,7 @@ export default class OneToOne extends Component {
     await this.props.getUser(this.state.user);
     // look here
     this.setState({name: this.props.user.firstName})
-    //console.log(this.state.name)
+
   }
 
   oSend(messages) {
@@ -124,7 +125,7 @@ const styles = StyleSheet.create({
   top: {
     height: '10%',
     alignItems: 'center',
-//    justifyContent: 'center',
+    top: '10%',
     flexDirection: 'row',
   },
   topWords: {
@@ -138,3 +139,18 @@ const styles = StyleSheet.create({
     fontSize: 60
   },
 })
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({ getUser }, dispatch);
+}
+
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(OneToOne)

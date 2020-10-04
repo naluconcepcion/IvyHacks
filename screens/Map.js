@@ -227,7 +227,7 @@ class MapScreen extends Component {
 
   async componentDidMount() {
 //     await this.fetchOthersNearby();
-    await this.findCoordinates()
+    await this.findCoordinates();
   }
 
   fetchOthersNearby = async () => {
@@ -243,17 +243,17 @@ class MapScreen extends Component {
     }
   }
 
+  // @TODO: async error with position fetch here cauasing unhandled rejection for locationsRef.ref not a function
   findCoordinates = async () => {
     navigator.geolocation.getCurrentPosition(
-      position => {
+      async position => {
         const location = [position.coords.latitude, position.coords.longitude];
         this.setState({
           location: location,
           isLoading: false,
         });
       },
-      error => console.log(error.message),
-      { enableHighAccuracy: false, /*timeout: 0,*/ maximumAge: 10000 }
+
     )
   };
 
