@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Button } from 'react-native-elements';
 import { Text, View, StyleSheet, TouchableOpacity, TextInput, Image } from 'react-native';
 
+import OneToOne from '../screens/OneToOne'
+
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
@@ -24,7 +26,7 @@ export default class Friends extends Component {
       <View
       style={styles.top}>
       <Icon name="chevron-left" size={20} color='#212121'
-        onPress={() => this.props.navigation.navigate('Opening')}
+        onPress={() => this.props.navigation.goBack() }
         style={styles.back}
       />
       <TouchableOpacity

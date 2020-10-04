@@ -77,11 +77,9 @@ export default class App extends Component {
               <AuthStackNavigator/>
             )}
           </NavigationContainer>
-        </Provider>
+      </Provider>
     );
-
   }
-
 }
 
 const styles = StyleSheet.create({

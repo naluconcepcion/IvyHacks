@@ -214,6 +214,8 @@ const mapStyle = [
   }
 ]
 
+const mapScale = 0.01;
+
 class MapScreen extends Component {
   constructor(props) {
     super(props);
@@ -224,9 +226,8 @@ class MapScreen extends Component {
   }
 
   async componentDidMount() {
-    // await this.fetchOthersNearby();
+//     await this.fetchOthersNearby();
     await this.findCoordinates()
-    console.log(this.state.location)
   }
 
   fetchOthersNearby = async () => {
@@ -245,22 +246,20 @@ class MapScreen extends Component {
   findCoordinates = async () => {
     navigator.geolocation.getCurrentPosition(
       position => {
-        const location = [position.coords.latitude.toFixed(0),position.coords.longitude.toFixed(0)];
-        // console.log(location)
+        const location = [position.coords.latitude, position.coords.longitude];
         this.setState({
           location: location,
           isLoading: false,
         });
       },
       error => console.log(error.message),
-      { enableHighAccuracy: false, timeout: 0, maximumAge: 10000 }
+      { enableHighAccuracy: false, /*timeout: 0,*/ maximumAge: 10000 }
     )
   };
 
   render() {
     if(!this.state.isLoading) {
       return(
-
         <View style={styles.container}>
           <StatusBar hidden />
         <MapView
@@ -268,10 +267,10 @@ class MapScreen extends Component {
         customMapStyle={mapStyle}
         provider={PROVIDER_GOOGLE}
         initialRegion={{
-          latitude: parseInt(this.state.location[0])-0.25,
-          longitude: parseInt(this.state.location[1])-0.25,
-          latitudeDelta: 0.5,
-          longitudeDelta: 0.5
+          latitude: this.state.location[0],
+          longitude: this.state.location[1],
+          latitudeDelta: mapScale,
+          longitudeDelta: mapScale
         }}
         showsUserLocation={true}
         scrollEnabled={false}

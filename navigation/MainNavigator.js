@@ -56,8 +56,12 @@ export default function MainStackNavigator() {
       <Drawer.Screen name="Mailbox" component={Mailbox}/>
       <Drawer.Screen name="Stranger Profile" component={Profile}/>
       <Drawer.Screen name="Chat" component={MainStackNavigator2}/>
+      <Drawer.Screen name="Friends" component={Friends}/>
+      <Drawer.Screen name="OneToOne" component={OneToOne}/>
     </Drawer.Navigator>
   );
+  // For OneToOne above to not appear in the DrawerNavigator, we might need to make
+  // a StackNavigator for Friends or something
 }
 
 const MainNavigator = createStackNavigator();
