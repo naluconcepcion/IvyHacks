@@ -156,6 +156,7 @@ const styles = StyleSheet.create({
 //    backgroundColor: 'red',
   },
   plus: {
+    top: 30,
     width: 20,
     height: 20,
     resizeMode: 'contain',
@@ -169,6 +170,7 @@ const styles = StyleSheet.create({
 //    backgroundColor: 'blue',
 //  },
   top: {
+    top: '5%',
     height: '10%',
     alignItems: 'center',
     flexDirection: 'row',

@@ -19,6 +19,9 @@ import { updateLocation } from './actions/user'
 const middleware = applyMiddleware(thunkMiddleware)
 const store = createStore(reducer, middleware)
 
+console.disableYellowBox = true;
+// LogBox.ignoreLogs()
+
 export default class App extends Component {
   constructor() {
     super();

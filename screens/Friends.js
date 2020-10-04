@@ -112,6 +112,7 @@ const styles = StyleSheet.create({
     width: 40,
   },
   top: {
+    top: '10%',
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -133,6 +134,7 @@ const styles = StyleSheet.create({
     fontSize: 60
   },
   flatlist: {
+    top: '5%',
     width: '100%',
 //    backgroundColor: 'grey',
   },
