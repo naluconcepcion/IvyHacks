@@ -41,46 +41,55 @@ import * as React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { DrawerActions } from 'react-navigation';
 
-const Drawer = createDrawerNavigator();
+// const Drawer = createDrawerNavigator();
+//
+// /* Query the Realtime db to determine all other users in the vicinity. */
+// return (
+//   <Drawer.Navigator
+//   initialRouteName="Map"
+//   screenOptions={
+//     {
+//       headerShown: false,
+//     }
+//   }
+//   drawerType={"right"}
+//   drawerPosition={'right'}
+//   drawerBackgroundColor={'#F9F9F9'}>
+//     <Drawer.Screen name="Map" component={Map}/>
+//     <Drawer.Screen name="Mailbox" component={Mailbox}/>
+//     <Drawer.Screen name="Stranger Profile" component={Profile}/>
+//     <Drawer.Screen name="Chat" component={MainStackNavigator}/>
+//   </Drawer.Navigator>
+// );
 
 const BottomTab = createBottomTabNavigator();
 
 export default function BottomTabNavigator() {
-  /* Query the Realtime db to determine all other users in the vicinity. */
-  // return (
-  //   <Drawer.Navigator
-  //   initialRouteName="Map"
-  //   screenOptions={
-  //     {
-  //       headerShown: false,
-  //     }
-  //   }
-  //   drawerType={"right"}
-  //   drawerPosition={'right'}
-  //   drawerBackgroundColor={'#F9F9F9'}>
-  //     <Drawer.Screen name="Map" component={Map}/>
-  //     <Drawer.Screen name="Mailbox" component={Mailbox}/>
-  //     <Drawer.Screen name="Stranger Profile" component={Profile}/>
-  //     <Drawer.Screen name="Chat" component={MainStackNavigator}/>
-  //   </Drawer.Navigator>
-  // );
   return (
     <BottomTab.Navigator
-    initialRouteName="Map"
+    initialRouteName="MapScreen"
     tabBarOptions={{activeTintColor: '#B31B1B', showLabel: false, style: {backgroundColor: '#212121'}}}>
-    <BottomTab.Screen
-    name="MapScreen"
-    component={Map}
-    options={{
-      tabBarIcon: ({ color }) => <Entypo name="map" size={30} color={ color } />,
-    }}
-    />
     <BottomTab.Screen
       name="Friends"
       component={Friends}
       options={{
         tabBarIcon: ({ color }) => <Entypo name="users" size={30} color= { color } />,
       }}
+      />
+      <MapStack.Screen
+        name="PostMap"
+        component={PostMap}
+      />
+      <BottomTab.Screen
+      name="MapScreen"
+      component={MapStackNav}
+      options={{
+        tabBarIcon: ({ color }) => <Entypo name="map" size={30} color={ color } />,
+      }}
+      />
+      <MapStack.Screen
+        name="Chat"
+        component={Chat}
       />
       <BottomTab.Screen
       name="OneToOne"
@@ -89,17 +98,55 @@ export default function BottomTabNavigator() {
         tabBarIcon: ({ color }) => <FontAwesome name="paper-plane" size={30} color={ color } />,
       }}
       />
-      <MainNavigator.Screen
-      name="PostMap"
-      component = {PostMap}
-      />
       </BottomTab.Navigator>
     );
 }
 
+
+
+
+// I couldn't get the nav stack to fucking nest so I just faked it in the bottomtab nav
+const MapStack = createStackNavigator();
+
+function MapStackNav() {
+  return (
+    <MapStack.Navigator initialRouteName = "Map"
+    screenOptions = {
+      {
+        headerShown: false
+      }
+    }>
+
+    <MapStack.Screen name = "MapScreen"
+    component = {Map}
+    />
+
+    <MapStack.Screen name = "Chat"
+    component = {Chat}
+    />
+
+    <MapStack.Screen
+      name="Friends"
+      component = {Friends}
+    />
+
+    <MapStack.Screen
+      name="OneToOne"
+      component = {OneToOne}
+    />
+
+    <MapStack.Screen
+      name="PostMap"
+      component = {PostMap}
+    />
+
+    </MapStack.Navigator>
+  )
+}
+
 const MainNavigator = createStackNavigator();
 
-function MainStackNavigator() {
+export function MainStackNavigator() {
   return (
     <MainNavigator.Navigator initialRouteName = "Map"
     screenOptions = {
@@ -143,7 +190,10 @@ function MainStackNavigator() {
       component = {OneToOne}
     />
 
-    
+    <MainNavigator.Screen
+      name="PostMap"
+      component = {PostMap}
+    />
 
     </MainNavigator.Navigator>
   );

@@ -65,7 +65,7 @@ export default class PostMap extends Component {
       <TouchableOpacity
       title="General"
       style={styles.chat}
-      onPress={() => this.props.navigation.navigate('PostMap')}
+      onPress={() => this.props.navigation.navigate('Chat')}
       >
       <Text style={styles.text}>General</Text>
       </TouchableOpacity>

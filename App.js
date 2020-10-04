@@ -6,8 +6,8 @@ import reducer from './reducers'
 import { Provider } from 'react-redux'
 import { NavigationContainer } from '@react-navigation/native';
 import BottomTabNavigator from './navigation/MainNavigator'
-import AuthStackNavigator from './navigation/AuthStackNavigator'
 import MainNavigator from './navigation/MainNavigator'
+import AuthStackNavigator from './navigation/AuthStackNavigator'
 
 import { StyleSheet } from 'react-native';
 import Firebase, {realtime} from './config/Firebase';
