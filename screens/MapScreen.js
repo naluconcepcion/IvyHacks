@@ -290,7 +290,7 @@ class MapScreen extends Component {
          </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('Chat')}
+          onPress={() => this.props.navigation.navigate('PostMap')}
           style={{justifyContent: 'center', alignItems: 'center', position: 'absolute', top: '80%', backgroundColor: '#B31B1B', height: '10%', width: '55%', borderRadius: 15}}>
 
           <Text style={{ fontSize: 30, lineHeight: 30, color: 'white', textAlign: 'center', textAlignVertical: 'center',  }}>

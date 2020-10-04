@@ -98,7 +98,7 @@ const MainNavigator = createStackNavigator();
 
 function MainStackNavigator() {
   return (
-    <MainNavigator.Navigator initialRouteName = "Chat"
+    <MainNavigator.Navigator initialRouteName = "Map"
     screenOptions = {
       {
         headerShown: false
