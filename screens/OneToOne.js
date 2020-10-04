@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { GiftedChat } from 'react-native-gifted-chat';
 import { Button } from 'react-native-elements';
-import { Text, View, StyleSheet, TouchableOpacity, TextInput, Image } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, TextInput, Image, FlatList } from 'react-native';
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -13,6 +13,54 @@ import { useFonts } from 'expo-font';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import { getUser } from '../actions/user';
+
+const DATA = [
+    {
+        name: 'Srikar',
+        icon_uri: 'https://reactnative.dev/img/tiny_logo.png',
+        last_message: 'yeah, idk man this pset kills'
+    },
+    {
+        name: 'Grace',
+        icon_uri: 'https://cdn.discordapp.com/avatars/247056765877878785/26181ea87dcf1b90055fb6fee5cc9833.png?size=256',
+        last_message: 'follow my spotify'
+    },
+    {
+        name: 'Kurt',
+        icon_uri: 'https://discord.com/assets/dd4dbc0016779df1378e7812eabaa04d.png',
+        last_message: 'school is hard'
+    },
+    {
+        name: 'Srikar',
+        icon_uri: 'https://reactnative.dev/img/tiny_logo.png',
+        last_message: 'yeah, idk man this pset kills'
+    },
+    {
+        name: 'Grace',
+        icon_uri: 'https://cdn.discordapp.com/avatars/247056765877878785/26181ea87dcf1b90055fb6fee5cc9833.png?size=256',
+        last_message: 'follow my spotify'
+    },
+    {
+        name: 'Kurt',
+        icon_uri: 'https://discord.com/assets/dd4dbc0016779df1378e7812eabaa04d.png',
+        last_message: 'school is hard'
+    },
+    {
+        name: 'Srikar',
+        icon_uri: 'https://reactnative.dev/img/tiny_logo.png',
+        last_message: 'yeah, idk man this pset kills'
+    },
+    {
+        name: 'Grace',
+        icon_uri: 'https://cdn.discordapp.com/avatars/247056765877878785/26181ea87dcf1b90055fb6fee5cc9833.png?size=256',
+        last_message: 'follow my spotify'
+    },
+    {
+        name: 'Kurt',
+        icon_uri: 'https://discord.com/assets/dd4dbc0016779df1378e7812eabaa04d.png',
+        last_message: 'school is hard'
+    },
+];
 
 class OneToOne extends Component {
   static navigationOptions = {
@@ -39,56 +87,41 @@ class OneToOne extends Component {
     await this.props.getUser(this.state.user);
     // look here
     this.setState({name: this.props.user.firstName})
-
-  }
-
-  oSend(messages) {
-      let x = this.state.messages;
-      //console.log(this.state.messages);
-      if(this.state.messages == undefined) {
-        x = [];
-      }
-      let y = x.push(messages[0]);
-      this.setState({messages: x});
-
-
-      // set the remote firebase to update messages accordingly
-      db.collection("messages").doc(this.state.location).set({
-        messages: this.state.messages,
-      }).then(() => {
-        console.log("successfully added a new message!")
-      })
   }
 
   render() {
     if (this.state.isLoaded) {
+        const renderItem = ({item}) => (
+            <View style={styles.item}>
+                <TouchableOpacity style={styles.itemTOpacity}>
+                    <Image style={styles.userIcon}
+                        source={{uri: item.icon_uri}}
+                    />
+                    <View style={styles.itemRight}>
+                        <Text style={styles.name}>{item.name}</Text>
+                        <Text style={styles.lastMessage}>{item.last_message}</Text>
+                    </View>
+                </TouchableOpacity>
+            </View>
+        );
         return (
           <View style={styles.container}>
+            <TouchableOpacity style={styles.plusTOpacity}>
+              <Image
+                style={styles.plus}
+                source={require('../assets/images/plus.png')}
+              />
+            </TouchableOpacity>
               <View style={styles.top}>
-                  <Icon name="chevron-left" size={20} color='#212121'
-                    onPress={() => this.props.navigation.goBack()}
-                    style={styles.back}
-                  />
                   <Image
                     style={styles.tinyLogo}
                     source={require('../assets/images/onetoone.png')}
                   />
               </View>
-              <GiftedChat
-                messages = { this.state.messages }
-                onSend = {messages => this.oSend(messages)}
-                user={
-                  {
-                    _id: this.state.user,
-                    name: this.state.name,
-                  }
-                }
-                renderUsernameOnMessage = {true}
-                inverted = {false}
-                alwaysShowSend = {true}
-                //textInputStyle = {{textAlignVertical: 'center', backgroundColor: '#212121', color: 'white', padding: 15, borderRadius: 15,}}
-                //style={{backgroundColor: 'red'}}
-              />
+              <FlatList style={styles.flatlist}
+                  data={DATA}
+                  renderItem={renderItem}
+                />
           </View>
         );
     } else {
@@ -102,42 +135,83 @@ class OneToOne extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-//    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'center',
+//    justifyContent: 'center',
     backgroundColor: '#212121',
     width: '100%',
     height: '100%',
   },
   tinyLogo: {
 //    position: 'relative',
-    width: '60%',
-    height: '80%',
+    width: '30%',
+    height: '50%',
     resizeMode: 'contain',
-    left: '50%',
+//    backgroundColor: 'red',
   },
-  back: {
-    color: '#F9F9F9',
-    marginLeft: 10,
+  plusTOpacity: {
+    position: 'absolute',
+    top: 5,
+    right: 5,
     padding: 15,
+//    backgroundColor: 'red',
+  },
+  plus: {
+    width: 20,
+    height: 20,
+    resizeMode: 'contain',
+  },
+//  back: {
+//    color: '#F9F9F9',
+//    marginLeft: 10,
+//    padding: 15,
 //    width: 40,
 //    left: '-20%',
 //    backgroundColor: 'blue',
-  },
+//  },
   top: {
     height: '10%',
     alignItems: 'center',
     flexDirection: 'row',
 //    backgroundColor: 'red',
   },
-  topWords: {
-    color: '#F9F9F9',
-    fontSize: 18,
-    padding: 25,
+  flatlist: {
+    width: '100%',
+//    backgroundColor: 'grey',
   },
-  text: {
-    color: '#F9F9F9',
-    fontFamily: 'Avenir',
-    fontSize: 60
+  item: {
+    borderBottomWidth: 0.5,
+    borderColor: '#ddd',
+    padding: 5,
+//    backgroundColor: 'red',
+  },
+  itemTOpacity: {
+    flexDirection: 'row',
+    padding: 10,
+//    backgroundColor: 'red',
+  },
+  userIcon: {
+    resizeMode: 'contain',
+    width: 60,
+    height: 60,
+    // I don't know why plain old 30 doesn't work, but I'll make it extra high to be safe
+    borderRadius: 1000,
+//    backgroundColor: 'green',
+    marginLeft: 15,
+    marginRight: 15,
+  },
+  itemRight: {
+//    justifyContent: 'center',
+//    backgroundColor: 'yellow',
+  },
+  name: {
+    color: 'white',
+    fontSize: 20,
+    marginBottom: 4,
+  },
+  lastMessage: {
+    color: '#ddd',
+    fontSize: 12,
+    marginBottom: 4,
   },
 })
 
