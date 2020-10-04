@@ -16,6 +16,16 @@ export default class Friends extends Component {
   static navigationOptions = {
       title: 'Friends'
   }
+  handleChangeOnline = () => {
+    this.setState({
+      screen: "online"
+    })
+  }
+  handleChangeRequests = () => {
+    this.setState({
+      screen: "requests"
+    })
+  }
 
   render() {
     return (
@@ -29,7 +39,7 @@ export default class Friends extends Component {
       />
       <TouchableOpacity
       title='Online'
-      onPress={() => this.props.navigation.navigate('Friends')}>
+      onPress={() => this.handleChangeOnline()}>
       <Text style={styles.topWords}>
       Online
       </Text>
@@ -37,7 +47,7 @@ export default class Friends extends Component {
 
       <TouchableOpacity
       title='Requests'
-      onPress={() => this.props.navigation.navigate('Friends')}>
+      onPress={() => this.handleChangeRequests()}>
       <Text style={styles.topWords}>
       Requests
       </Text>
@@ -76,7 +86,7 @@ const styles = StyleSheet.create({
   top: {
     alignItems: 'center',
     flexDirection: 'row',
-    top: '-90%',
+    top: '-80%',
   },
   topWords: {
     color: '#F9F9F9',

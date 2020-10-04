@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   top: {
     alignItems: 'center',
     flexDirection: 'row',
-    top: '-90%',
+    top: '-80%',
   },
   topWords: {
     color: '#F9F9F9',

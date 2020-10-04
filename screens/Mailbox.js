@@ -21,7 +21,7 @@ export default class Mailbox extends Component {
       <View
       style={styles.container}>
       <Text style={styles.text}>
-      HI
+      This is a mailbox?
       </Text>
 
       </View>
