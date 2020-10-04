@@ -119,7 +119,7 @@ class Chat extends Component {
       return (
         <View style={styles.container}>
           <Icon name="chevron-left" size={20} color="#F9F9F9"
-            onPress={() => this.props.navigation.navigate('MapScreen')}
+            onPress={() => this.props.navigation.navigate('PostMap')}
             style={styles.back}
           />
         <GiftedChat

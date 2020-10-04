@@ -35,10 +35,7 @@ export default class Friends extends Component {
       style={styles.container}>
       <View
       style={styles.top}>
-      <Icon name="chevron-left" size={20} color='#212121'
-        onPress={() => this.props.navigation.goBack() }
-        style={styles.back}
-      />
+      
       <TouchableOpacity
       title='Online'
       onPress={() => this.handleChangeOnline()}>
