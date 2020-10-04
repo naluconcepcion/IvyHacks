@@ -284,8 +284,8 @@ class MapScreen extends Component {
          </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('Chat')}
-          style={{justifyContent: 'center', alignItems: 'center', position: 'absolute', top: '80%', backgroundColor: '#B31B1B', height: '10%', width: '55%', borderRadius: 15}}>
+          onPress={() => this.props.navigation.navigate('PostMap')}
+          style={{justifyContent: 'center', alignItems: 'center', position: 'absolute', top: '85%', backgroundColor: '#B31B1B', height: '10%', width: '55%', borderRadius: 15}}>
 
         <Text style={styles.jump}>JUMP ON</Text>
         </TouchableOpacity>

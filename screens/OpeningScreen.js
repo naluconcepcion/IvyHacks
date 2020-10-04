@@ -34,15 +34,6 @@ class OpeningScreen extends Component {
         style={styles.tinyLogo}
         source={require('../assets/images/ontoologo.png')}
       />
-
-      <TouchableOpacity
-      title="Friends"
-      style={styles.topButton}
-      onPress={() => this.props.navigation.navigate('PostMap')}>
-      <Text style={styles.darkText}>MIDMAP SCREEN</Text>
-      </TouchableOpacity>
-
-
         <TouchableOpacity
         title="LOG IN"
         style={styles.topButton}
