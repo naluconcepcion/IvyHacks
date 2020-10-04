@@ -1,9 +1,6 @@
 import OpeningScreen from '../screens/OpeningScreen'
 import LoginScreen from '../screens/LoginScreen'
 import SignupScreen from '../screens/SignupScreen'
-import Friends from '../screens/Friends'
-import OneToOne from '../screens/OneToOne'
-import PostMap from '../screens/PostMap'
 
 // import TabOneScreen from '../screens/TabOneScreen'
 // import TabTwoScreen from '../screens/TabTwoScreen'
@@ -41,21 +38,6 @@ export default function AuthStackNavigator() {
       <AuthStack.Screen
         name="Signup"
         component = {SignupScreen}
-      />
-
-      <AuthStack.Screen
-        name="Friends"
-        component = {Friends}
-      />
-
-      <AuthStack.Screen
-        name="OneToOne"
-        component = {OneToOne}
-      />
-
-      <AuthStack.Screen
-        name="PostMap"
-        component = {PostMap}
       />
 
     </AuthStack.Navigator>

@@ -6,6 +6,7 @@ import reducer from './reducers'
 
 import { Provider } from 'react-redux'
 import { NavigationContainer } from '@react-navigation/native';
+import BottomTabNavigator from './navigation/MainNavigator'
 import AuthStackNavigator from './navigation/AuthStackNavigator'
 import MainNavigator from './navigation/MainNavigator'
 
@@ -72,7 +73,7 @@ export default class App extends Component {
       <Provider store={store}>
           <NavigationContainer>
             { this.state.user ? (
-              <MainNavigator/>
+              <BottomTabNavigator/>
             ) : (
               <AuthStackNavigator/>
             )}
